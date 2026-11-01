@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: delly-gold:latest
+    container_name: delly-gold
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-4000}:3000"
+    # Host bind mount — DB + uploads survive image rebuilds / redeploys.
+    # Override with DATA_DIR in .env (e.g. /var/delly-gold/data).
+    volumes:
+      - ${DATA_DIR:-./data}:/app/data
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=file:/app/data/delly-gold.db
+      - UPLOAD_DIR=/app/data/uploads
+      - JWT_SECRET=${JWT_SECRET:-delly-gold-change-this-secret-in-production}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN:-7d}
+      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
+      - HUGGINGFACE_API_TOKEN=${HUGGINGFACE_API_TOKEN:-}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - TELEGRAM_ADMIN_IDS=${TELEGRAM_ADMIN_IDS:-}
+      - TELEGRAM_ADMIN_PIN=${TELEGRAM_ADMIN_PIN:-1234}
+      - TELEGRAM_WEBHOOK_SECRET=${TELEGRAM_WEBHOOK_SECRET:-}
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/products"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
