@@ -233,7 +233,7 @@ export default function TryOnPage() {
   // ── Download ───────────────────────────────────────────────
   function downloadCanvas() {
     const a = document.createElement("a");
-    a.download = "delly-gold-tryon.png";
+    a.download = "khanoomi-joon-tryon.png";
     a.href = canvasRef.current?.toDataURL("image/png") ?? "";
     a.click();
   }
@@ -241,7 +241,7 @@ export default function TryOnPage() {
   function downloadAi() {
     if (!aiImage) return;
     const a = document.createElement("a");
-    a.download = "delly-gold-ai.png";
+    a.download = "khanoomi-joon-ai.png";
     a.href = aiImage;
     a.click();
   }

@@ -709,7 +709,7 @@ export default function AdminSettingsPage() {
             <label style={{ color: "#888", fontSize: "12px", display: "flex", alignItems: "center", gap: "5px", marginBottom: "5px" }}>
               <Mail size={12} /> ایمیل
             </label>
-            <input value={email} onChange={e => setEmail(e.target.value)} style={inp} placeholder="info@dellygold.com" />
+            <input value={email} onChange={e => setEmail(e.target.value)} style={inp} placeholder="info@khanoomijoon.com" />
           </div>
           <div>
             <label style={{ color: "#888", fontSize: "12px", display: "block", marginBottom: "5px" }}>توضیح برند (فوتر)</label>
@@ -1061,7 +1061,7 @@ export default function AdminSettingsPage() {
           >
             <div style={{ backgroundColor: activePalette.card, border: `1px solid ${activePalette.border}`, borderRadius: "8px", padding: "14px" }}>
               <p style={{ color: activePalette.accent, fontWeight: "700", fontSize: `${fontMobile}px`, marginBottom: "6px" }}>
-                دلی گلد — نمونه موبایل ({fontMobile}px)
+                خانوم جون — نمونه موبایل ({fontMobile}px)
               </p>
               <p style={{ color: activePalette.textMuted, fontSize: `${Math.max(parseInt(fontMobile) - 2, 11)}px`, marginBottom: "10px" }}>
                 متن توضیحات با رنگ ثانویه
@@ -1203,7 +1203,7 @@ export default function AdminSettingsPage() {
             <option value="auto">خودکار — اتحادیه تهران + TGJU (پیشنهادی)</option>
             <option value="estjt">اتحادیه طلا و جواهر تهران (estjt.ir)</option>
             <option value="tgju">شبکه اطلاع‌رسانی طلا و ارز (TGJU)</option>
-            <option value="akbari">دلی گلد</option>
+            <option value="akbari">خانوم جون</option>
           </select>
           <p style={{ color: "#555", fontSize: "11px", margin: "6px 0 0", lineHeight: 1.9 }}>
             منبع فعلی: {goldData?.sourceTitle ?? "در حال دریافت…"} — در صفحه «تابلو طلا» می‌توانید منبع را جداگانه عوض کنید.

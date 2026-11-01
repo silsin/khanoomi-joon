@@ -41,7 +41,7 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
           <div style={{ color: "#d4af37", fontSize: "36px", fontWeight: "900", letterSpacing: "-2px" }}>DG</div>
-          <div style={{ color: "#d4af37", fontSize: "11px", letterSpacing: "3px", fontWeight: "600" }}>DELLY GOLD</div>
+          <div style={{ color: "#d4af37", fontSize: "11px", letterSpacing: "3px", fontWeight: "600" }}>KHANOOMI JOON</div>
           <p style={{ color: "#888", fontSize: "13px", marginTop: "8px" }}>پنل مدیریت</p>
         </div>
 
@@ -64,7 +64,7 @@ export default function AdminLoginPage() {
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                placeholder="admin@dellygold.com"
+                placeholder="admin@khanoomijoon.com"
                 required
                 autoFocus
                 autoComplete="email"
@@ -93,7 +93,7 @@ export default function AdminLoginPage() {
         </div>
 
         <p style={{ color: "#555", fontSize: "12px", textAlign: "center", marginTop: "16px" }}>
-          دلی گلد © ۱۴۰۴
+          گالری طلای خانوم جون © ۱۴۰۴
         </p>
       </div>
     </div>

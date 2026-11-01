@@ -115,7 +115,7 @@ const CACHE_TTL = 60 * 1000;
 const STALE_HOLD = 3 * 60 * 1000;
 
 /**
- * Last «دلی گلد» failure reason (short Persian sentence, token NEVER logged).
+ * Last «خانوم جون» failure reason (short Persian sentence, token NEVER logged).
  * Attached as `note` on stale/fallback akbari responses so the board footer
  * shows exactly why the source is down, and printed to server logs.
  */
@@ -564,7 +564,7 @@ interface AkbariPriceItem {
 }
 
 /**
- * Raw row passed through to the board untouched — when «دلی گلد» is the
+ * Raw row passed through to the board untouched — when «خانوم جون» is the
  * active source the rates board renders this list 1:1 (same names, same
  * prices) instead of mapping onto the fixed 9-rate grid.
  */
@@ -724,7 +724,7 @@ function buildAkbariPayload(
   coinQuote(coinGram, "coinGram");
 
   // Raw rows, passed through untouched — the board renders this 1:1
-  // (same names, same Rial prices) when «دلی گلد» is the active source.
+  // (same names, same Rial prices) when «خانوم جون» is the active source.
   const akbariItems: AkbariRawItem[] = [...items]
     .sort((a, b) => a.sortId - b.sortId)
     .map(i => ({
@@ -992,20 +992,20 @@ function knownMemo(
 }
 
 /**
- * When the «دلی گلد» source produced nothing this cycle, attach the exact
+ * When the «خانوم جون» source produced nothing this cycle, attach the exact
  * failure reason recorded by fetchFromAkbari so the board footer (which
  * renders `note`) tells the operator what to fix. Other sources untouched.
  */
 function attachDiag(d: GoldMarketData, requested: PriceSourceChoice): GoldMarketData {
   if (requested !== "akbari" || !akbariDiag) return d;
-  return { ...d, note: `دلی گلد: ${akbariDiag}` };
+  return { ...d, note: `خانوم جون: ${akbariDiag}` };
 }
 
-/** Same as fallbackPayload() but carries the «دلی گلد» failure reason. */
+/** Same as fallbackPayload() but carries the «خانوم جون» failure reason. */
 function fallbackWithDiag(requested: PriceSourceChoice, at: number): GoldMarketData {
   const base = { ...fallbackPayload(requested, at) };
   if (requested === "akbari" && akbariDiag) {
-    return { ...base, note: `دلی گلد: ${akbariDiag}` };
+    return { ...base, note: `خانوم جون: ${akbariDiag}` };
   }
   return base;
 }

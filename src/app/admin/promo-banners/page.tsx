@@ -103,7 +103,7 @@ export default function AdminPromoBannersPage() {
           <div>
             <h2 style={{ color: "#fff", fontSize: "18px", fontWeight: "700" }}>بنرهای تبلیغاتی</h2>
             <p style={{ color: "#666", fontSize: "12px", marginTop: "4px", lineHeight: 1.6 }}>
-              کارت‌های بخش تبلیغات صفحه اصلی (تخفیف‌های دلی‌گلد، طلای کم اُجرت و ...) را اینجا مدیریت کنید. بنر غیرفعال در سایت نمایش داده نمی‌شود.
+              کارت‌های بخش تبلیغات صفحه اصلی (تخفیف‌های خانوم جون، طلای کم اُجرت و ...) را اینجا مدیریت کنید. بنر غیرفعال در سایت نمایش داده نمی‌شود.
             </p>
           </div>
           <button onClick={openCreate}
@@ -164,7 +164,7 @@ export default function AdminPromoBannersPage() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "12px" }}>
                 <div style={{ gridColumn: "1 / -1" }}>
                   <label style={{ display: "block", color: "#888", fontSize: "12px", marginBottom: "6px" }}>عنوان *</label>
-                  <input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} style={{ ...inp, direction: "rtl" }} placeholder="مثلاً: تخفیف‌های دلی‌گلد" />
+                  <input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} style={{ ...inp, direction: "rtl" }} placeholder="مثلاً: تخفیف‌های خانوم جون" />
                 </div>
                 <div style={{ gridColumn: "1 / -1" }}>
                   <label style={{ display: "block", color: "#888", fontSize: "12px", marginBottom: "6px" }}>زیرعنوان</label>

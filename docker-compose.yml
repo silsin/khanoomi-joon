@@ -9,14 +9,14 @@ services:
     ports:
       - "${APP_PORT:-8574}:8574"
     # Host bind mount — DB + uploads survive image rebuilds / redeploys.
-    # Override with DATA_DIR in .env (e.g. /var/delly-gold/data).
+    # Override with DATA_DIR in .env (e.g. /var/khanoomi-joon/data).
     volumes:
       - ${DATA_DIR:-./data}:/app/data
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=file:/app/data/delly-gold.db
+      - DATABASE_URL=file:/app/data/khanoomi-joon.db
       - UPLOAD_DIR=/app/data/uploads
-      - JWT_SECRET=${JWT_SECRET:-delly-gold-change-this-secret-in-production}
+      - JWT_SECRET=${JWT_SECRET:-khanoomi-joon-change-this-secret-in-production}
       - JWT_EXPIRES_IN=${JWT_EXPIRES_IN:-7d}
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:8574}
       - HUGGINGFACE_API_TOKEN=${HUGGINGFACE_API_TOKEN:-}

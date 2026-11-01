@@ -83,7 +83,7 @@ export default function CollabPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.name.trim(),
-          email: form.email.trim() || "collab@deligold.local",
+          email: form.email.trim() || "collab@khanoomijoon.local",
           phone: form.phone.trim(),
           subject: `درخواست همکاری: ${form.type}`,
           message: `نوع همکاری: ${form.type}\nشماره تماس: ${form.phone.trim()}\n\n${form.message.trim()}`,

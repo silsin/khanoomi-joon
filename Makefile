@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────
-# Delly Gold — Docker helpers
+# Khanoomi Joon — Docker helpers
 # Auto-detects docker compose v2 vs docker-compose v1
 # Usage: make up | make down | make logs | make rebuild
 # ─────────────────────────────────────────────────────────────
@@ -71,7 +71,7 @@ clean:
 ## Show this help
 help:
 	@echo ""
-	@echo "  Delly Gold — Docker commands"
+	@echo "  Khanoomi Joon — Docker commands"
 	@echo "  ─────────────────────────────"
 	@grep -E '^## ' Makefile | sed 's/## /  /'
 	@echo ""

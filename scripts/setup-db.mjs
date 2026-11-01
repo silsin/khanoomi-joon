@@ -17,7 +17,7 @@ const bcrypt = require("bcryptjs");
 
 // ── Resolve DB path ─────────────────────────────────────────────────────────
 // DATABASE_URL can be:
-//   file:/app/data/delly-gold.db   (Docker / absolute)
+//   file:/app/data/khanoomi-joon.db   (Docker / absolute)
 //   file:./prisma/dev.db           (local dev / relative)
 function resolveDbPath() {
   const url = process.env.DATABASE_URL || "file:./prisma/dev.db";
@@ -411,7 +411,7 @@ const migrations = [
   },
   {
     // «بنرهای تبلیغاتی» — admin-manageable homepage promo cards
-    // (تخفیف‌های دلی‌گلد / طلای کم اُجرت / ...). Replaces the hardcoded pair
+    // (تخفیف‌های خانوم جون / طلای کم اُجرت / ...). Replaces the hardcoded pair
     // in PromoBanners.tsx; existing settings values are migrated into rows.
     name: "027_promo_banners",
     sql: `
@@ -430,7 +430,7 @@ const migrations = [
 
       INSERT INTO promo_banners (id, title, sub, href, image, theme, sort_order, active)
       SELECT lower(hex(randomblob(12))),
-        COALESCE(NULLIF((SELECT value FROM settings WHERE key = 'promo_b1_title'), ''), 'تخفیف‌های دلی‌گلد'),
+        COALESCE(NULLIF((SELECT value FROM settings WHERE key = 'promo_b1_title'), ''), 'تخفیف‌های خانوم جون'),
         COALESCE(NULLIF((SELECT value FROM settings WHERE key = 'promo_b1_sub'), ''),   'محصولات تخفیف‌دار'),
         COALESCE(NULLIF((SELECT value FROM settings WHERE key = 'promo_b1_href'), ''),  '/products'),
         COALESCE(NULLIF((SELECT value FROM settings WHERE key = 'promo_b1_image'), ''), 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=500&q=80'),
@@ -542,11 +542,11 @@ function generateId() {
 }
 
 // Admin user
-const adminExists = db.prepare("SELECT id FROM users WHERE email = ?").get("admin@dellygold.com");
+const adminExists = db.prepare("SELECT id FROM users WHERE role = 'ADMIN' LIMIT 1").get();
 if (!adminExists) {
   const hash = await bcrypt.hash("Admin@1234", 12);
   db.prepare("INSERT INTO users (id, email, password, name, role) VALUES (?, ?, ?, ?, ?)").run(
-    generateId(), "admin@dellygold.com", hash, "مدیر سیستم", "ADMIN"
+    generateId(), "admin@khanoomijoon.com", hash, "مدیر سیستم", "ADMIN"
   );
   console.log("  ✅ Admin user created");
 } else {
@@ -606,6 +606,6 @@ db.close();
 console.log("\n🎉 Database ready!");
 console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 console.log("Admin:    http://localhost:8574/admin");
-console.log("Email:    admin@dellygold.com");
+console.log("Email:    admin@khanoomijoon.com");
 console.log("Password: Admin@1234");
 console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");

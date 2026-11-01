@@ -71,7 +71,7 @@ export async function GET(req: NextRequest) {
     if (!settings.gold_markup_percent) settings.gold_markup_percent = "5";
     if (!settings.gold_fixed_fee)      settings.gold_fixed_fee = "0";
     if (!settings.gold_tax_percent)    settings.gold_tax_percent = "0";
-    // «دلی گلد» source gap — 0/0 = pass-through (public: harmless numbers).
+    // «خانوم جون» source gap — 0/0 = pass-through (public: harmless numbers).
     if (!settings.akbari_gap_percent)  settings.akbari_gap_percent = "0";
     if (!settings.akbari_gap_toman)    settings.akbari_gap_toman = "0";
     // Live gold-linked pricing is OFF by default — flipping this on changes how
@@ -228,7 +228,7 @@ export async function POST(req: NextRequest) {
         const v = String(value);
         value = v === "estjt" || v === "tgju" || v === "akbari" || v === "auto" ? v : "auto";
       }
-      // Gap for the «دلی گلد» source — numeric with sane bounds so garbage
+      // Gap for the «خانوم جون» source — numeric with sane bounds so garbage
       // can never poison the live rate (percent ±100, toman ±10M per gram).
       if (key === "akbari_gap_percent") {
         const n = parseFloat(String(value));

@@ -1,4 +1,4 @@
-# Delly Gold — فروشگاه طلا و جواهرات
+# گالری طلای خانوم جون — فروشگاه طلا و جواهرات
 
 فروشگاه آنلاین طلا با Next.js 16، پنل مدیریت، بکند کامل، و پایگاه داده SQLite.
 
@@ -83,7 +83,7 @@ npm run dev
 | پنل مدیریت | http://localhost:8574/admin |
 
 ### ورود پنل مدیریت
-- **ایمیل:** `admin@dellygold.com`
+- **ایمیل:** `admin@khanoomijoon.com`
 - **رمز:** `Admin@1234`
 
 ---
@@ -124,7 +124,7 @@ docker-entrypoint.sh← DB setup + start server
 **Data dir (bind mount):** host `./data` → `/app/data` (automatic — no config needed)  
 `make up` / `scripts/docker-up.sh` run `scripts/ensure-data.sh`, which:
 1. Creates `./data/uploads` on the host
-2. If that folder has no DB yet, copies from the old Docker volume `*delly-gold-db*` once
+2. If that folder still has an old `delly-gold.db`, renames it to `khanoomi-joon.db`
 
 ---
 
@@ -195,7 +195,7 @@ npm run dev
 | پنل مدیریت | http://localhost:8574/admin |
 
 ### ورود پنل مدیریت
-- **ایمیل:** `admin@dellygold.com`
+- **ایمیل:** `admin@khanoomijoon.com`
 - **رمز:** `Admin@1234`
 
 ---

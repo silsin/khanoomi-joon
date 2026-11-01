@@ -2,7 +2,7 @@
 set -e
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  Delly Gold — Starting up"
+echo "  Khanoomi Joon — Starting up"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 UPLOAD_DIR="${UPLOAD_DIR:-/app/data/uploads}"

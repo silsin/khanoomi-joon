@@ -1,6 +1,7 @@
 #!/bin/sh
-# Ensures host DATA_DIR exists and, if empty, copies from the old Docker named volume.
-# Safe to run on every deploy — only migrates when the host dir has no database yet.
+# Ensures the host DATA_DIR exists before `docker compose up`.
+# Safe to run on every deploy. If the data dir still holds a database under the
+# old file name (delly-gold.db), it is renamed to khanoomi-joon.db in place.
 set -e
 
 cd "$(dirname "$0")/.."
@@ -26,48 +27,18 @@ esac
 
 mkdir -p "${DATA_DIR}/uploads"
 
-DB_FILE="${DATA_DIR}/delly-gold.db"
+DB_FILE="${DATA_DIR}/khanoomi-joon.db"
+LEGACY_DB="${DATA_DIR}/delly-gold.db"
 
-# Already have data on the host — nothing to migrate
+if [ ! -f "$DB_FILE" ] && [ -f "$LEGACY_DB" ]; then
+  for ext in "" "-wal" "-shm"; do
+    [ -f "${LEGACY_DB}${ext}" ] && mv "${LEGACY_DB}${ext}" "${DB_FILE}${ext}"
+  done
+  echo "→ Renamed delly-gold.db → khanoomi-joon.db"
+fi
+
 if [ -f "$DB_FILE" ]; then
   echo "→ Data dir ready: ${DATA_DIR}"
-  exit 0
-fi
-
-# Find old named volumes (plain name or Compose-prefixed)
-OLD_VOLUME=""
-for candidate in \
-  delly-gold-db \
-  $(docker volume ls -q 2>/dev/null | grep -E 'delly-gold-db$' || true)
-do
-  if [ -n "$candidate" ] && docker volume inspect "$candidate" >/dev/null 2>&1; then
-    # Prefer a volume that actually contains the DB
-    if docker run --rm -v "${candidate}:/from:ro" alpine \
-      test -f /from/delly-gold.db 2>/dev/null; then
-      OLD_VOLUME="$candidate"
-      break
-    fi
-    # Keep first existing volume as fallback if none have the DB yet
-    if [ -z "$OLD_VOLUME" ]; then
-      OLD_VOLUME="$candidate"
-    fi
-  fi
-done
-
-if [ -z "$OLD_VOLUME" ]; then
-  echo "→ Data dir ready (new): ${DATA_DIR}"
-  exit 0
-fi
-
-echo "→ Migrating data from Docker volume '${OLD_VOLUME}' → ${DATA_DIR}"
-docker run --rm \
-  -v "${OLD_VOLUME}:/from:ro" \
-  -v "${DATA_DIR}:/to" \
-  alpine \
-  sh -c "cp -a /from/. /to/ && mkdir -p /to/uploads"
-
-if [ -f "$DB_FILE" ]; then
-  echo "✓ Migration complete — DB and uploads are on the host now"
 else
-  echo "→ Volume '${OLD_VOLUME}' had no delly-gold.db; starting fresh at ${DATA_DIR}"
+  echo "→ Data dir ready (new database will be created): ${DATA_DIR}"
 fi

@@ -11,7 +11,7 @@ if [ -f .env ]; then
 fi
 
 APP_PORT="${APP_PORT:-8574}"
-JWT_SECRET="${JWT_SECRET:-delly-gold-change-this-secret-in-production}"
+JWT_SECRET="${JWT_SECRET:-khanoomi-joon-change-this-secret-in-production}"
 JWT_EXPIRES_IN="${JWT_EXPIRES_IN:-7d}"
 NEXT_PUBLIC_APP_URL="${NEXT_PUBLIC_APP_URL:-http://localhost:8574}"
 HUGGINGFACE_API_TOKEN="${HUGGINGFACE_API_TOKEN:-}"
@@ -42,7 +42,7 @@ docker run -d \
   -p "${APP_PORT}:8574" \
   -v "${DATA_DIR}:/app/data" \
   -e NODE_ENV=production \
-  -e "DATABASE_URL=file:/app/data/delly-gold.db" \
+  -e "DATABASE_URL=file:/app/data/khanoomi-joon.db" \
   -e "UPLOAD_DIR=/app/data/uploads" \
   -e "JWT_SECRET=${JWT_SECRET}" \
   -e "JWT_EXPIRES_IN=${JWT_EXPIRES_IN}" \
@@ -51,7 +51,7 @@ docker run -d \
   "${IMAGE}"
 
 echo ""
-echo "✓ Delly Gold is running at http://localhost:${APP_PORT}"
+echo "✓ Khanoomi Joon is running at http://localhost:${APP_PORT}"
 echo "  Host data: ${DATA_DIR}"
 echo "  Uploads:   ${DATA_DIR}/uploads"
 echo "  Logs: docker logs -f ${CONTAINER}"

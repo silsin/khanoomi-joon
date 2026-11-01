@@ -25,7 +25,7 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
-ENV DATABASE_URL="file:/app/data/delly-gold.db"
+ENV DATABASE_URL="file:/app/data/khanoomi-joon.db"
 ENV JWT_SECRET="build-time-placeholder"
 
 RUN npm run build

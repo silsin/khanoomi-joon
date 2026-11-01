@@ -230,7 +230,7 @@ export default function CollabPageSettings() {
             <Plus size={13} /> افزودن مرحله
           </button>
 
-          <p style={sectionTitle}>چرا دلی گلد؟</p>
+          <p style={sectionTitle}>چرا خانوم جون؟</p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "10px" }}>
             <input value={content.perksTitle} placeholder="عنوان بخش" onChange={e => patch({ perksTitle: e.target.value })} style={{ ...inp, direction: "rtl" }} />
             <input value={content.perksSubtitle} placeholder="زیرعنوان بخش" onChange={e => patch({ perksSubtitle: e.target.value })} style={{ ...inp, direction: "rtl" }} />

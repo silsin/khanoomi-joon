@@ -94,7 +94,7 @@ export default function GuidePagesSettings() {
         <h3 style={{ color: "#fff", fontSize: "15px", fontWeight: "600" }}>صفحات راهنما (فوتر)</h3>
       </div>
       <p style={{ color: "#666", fontSize: "12px", marginBottom: "16px", lineHeight: 1.6 }}>
-        محتوای لینک‌های ستون «خرید از دلی گلد» در فوتر. هر صفحه آدرس جداگانه دارد (مثلاً <strong style={{ color: "#888" }}>/info/buying</strong>).
+        محتوای لینک‌های ستون «خرید از خانوم جون» در فوتر. هر صفحه آدرس جداگانه دارد (مثلاً <strong style={{ color: "#888" }}>/info/buying</strong>).
       </p>
 
       {loading ? (

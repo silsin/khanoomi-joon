@@ -22,7 +22,7 @@ const WARMUP_MS = 2_000;
 
 declare global {
   // eslint-disable-next-line no-var
-  var __dellyGoldPricePoller: boolean | undefined;
+  var __khanoomiJoonPricePoller: boolean | undefined;
 }
 
 /** Read the site-wide source choice without importing route internals. */
@@ -79,8 +79,8 @@ async function tick(): Promise<void> {
  * instrumentation hook in dev); the global guard keeps a single timer.
  */
 export function startGoldPricePoller(): void {
-  if (globalThis.__dellyGoldPricePoller) return;
-  globalThis.__dellyGoldPricePoller = true;
+  if (globalThis.__khanoomiJoonPricePoller) return;
+  globalThis.__khanoomiJoonPricePoller = true;
 
   log(`starting — every ${Math.round(POLL_INTERVAL_MS / 1000)}s, source=${currentChoice()}`);
 
