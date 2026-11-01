@@ -15,8 +15,8 @@ JWT_SECRET="${JWT_SECRET:-delly-gold-change-this-secret-in-production}"
 JWT_EXPIRES_IN="${JWT_EXPIRES_IN:-7d}"
 NEXT_PUBLIC_APP_URL="${NEXT_PUBLIC_APP_URL:-http://localhost:8574}"
 HUGGINGFACE_API_TOKEN="${HUGGINGFACE_API_TOKEN:-}"
-IMAGE="${IMAGE:-delly-gold:latest}"
-CONTAINER="${CONTAINER:-delly-gold}"
+IMAGE="${IMAGE:-khanoomi-joon:latest}"
+CONTAINER="${CONTAINER:-khanoomi-joon}"
 # Host directory for SQLite + uploads (survives container rebuilds)
 DATA_DIR="${DATA_DIR:-./data}"
 

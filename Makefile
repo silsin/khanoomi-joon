@@ -32,7 +32,7 @@ install-compose:
 
 ## Fix ContainerConfig / stale-container errors, then start fresh
 fix-compose:
-	-docker rm -f delly-gold 2>/dev/null
+	-docker rm -f khanoomi-joon 2>/dev/null
 	$(COMPOSE) down --remove-orphans 2>/dev/null || true
 	@sh scripts/ensure-data.sh
 	$(COMPOSE) up -d --build

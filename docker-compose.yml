@@ -1,12 +1,10 @@
-version: "3.8"
-
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    image: delly-gold:latest
-    container_name: delly-gold
+    image: khanoomi-joon:latest
+    container_name: khanoomi-joon
     restart: unless-stopped
     ports:
       - "${APP_PORT:-8574}:8574"
