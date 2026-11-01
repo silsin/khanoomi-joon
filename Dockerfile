@@ -40,7 +40,7 @@ RUN apk add --no-cache libc6-compat tzdata wget su-exec
 ENV TZ=Asia/Tehran
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3000
+ENV PORT=8574
 ENV HOSTNAME="0.0.0.0"
 
 WORKDIR /app
@@ -68,6 +68,6 @@ RUN mkdir -p /app/data && chown nextjs:nodejs /app/data
 COPY docker-entrypoint.sh ./
 RUN chmod +x docker-entrypoint.sh
 
-EXPOSE 3000
+EXPOSE 8574
 
 ENTRYPOINT ["./docker-entrypoint.sh"]

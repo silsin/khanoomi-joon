@@ -605,7 +605,7 @@ db.close();
 
 console.log("\n🎉 Database ready!");
 console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-console.log("Admin:    http://localhost:3000/admin");
+console.log("Admin:    http://localhost:8574/admin");
 console.log("Email:    admin@dellygold.com");
 console.log("Password: Admin@1234");
 console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");

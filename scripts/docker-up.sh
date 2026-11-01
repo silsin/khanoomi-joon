@@ -10,10 +10,10 @@ if [ -f .env ]; then
   set +a
 fi
 
-APP_PORT="${APP_PORT:-4000}"
+APP_PORT="${APP_PORT:-8574}"
 JWT_SECRET="${JWT_SECRET:-delly-gold-change-this-secret-in-production}"
 JWT_EXPIRES_IN="${JWT_EXPIRES_IN:-7d}"
-NEXT_PUBLIC_APP_URL="${NEXT_PUBLIC_APP_URL:-http://localhost:3000}"
+NEXT_PUBLIC_APP_URL="${NEXT_PUBLIC_APP_URL:-http://localhost:8574}"
 HUGGINGFACE_API_TOKEN="${HUGGINGFACE_API_TOKEN:-}"
 IMAGE="${IMAGE:-delly-gold:latest}"
 CONTAINER="${CONTAINER:-delly-gold}"
@@ -39,7 +39,7 @@ echo "→ Starting on port ${APP_PORT}..."
 docker run -d \
   --name "${CONTAINER}" \
   --restart unless-stopped \
-  -p "${APP_PORT}:3000" \
+  -p "${APP_PORT}:8574" \
   -v "${DATA_DIR}:/app/data" \
   -e NODE_ENV=production \
   -e "DATABASE_URL=file:/app/data/delly-gold.db" \

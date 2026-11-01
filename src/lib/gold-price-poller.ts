@@ -45,7 +45,7 @@ function log(message: string): void {
  * `HOSTNAME` is 0.0.0.0 in Docker, so always dial the loopback address.
  */
 function selfBaseUrl(): string {
-  return `http://127.0.0.1:${process.env.PORT || "3000"}`;
+  return `http://127.0.0.1:${process.env.PORT || "8574"}`;
 }
 
 /**

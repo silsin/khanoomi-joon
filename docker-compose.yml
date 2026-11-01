@@ -9,7 +9,7 @@ services:
     container_name: delly-gold
     restart: unless-stopped
     ports:
-      - "${APP_PORT:-4000}:3000"
+      - "${APP_PORT:-8574}:8574"
     # Host bind mount — DB + uploads survive image rebuilds / redeploys.
     # Override with DATA_DIR in .env (e.g. /var/delly-gold/data).
     volumes:
@@ -20,14 +20,14 @@ services:
       - UPLOAD_DIR=/app/data/uploads
       - JWT_SECRET=${JWT_SECRET:-delly-gold-change-this-secret-in-production}
       - JWT_EXPIRES_IN=${JWT_EXPIRES_IN:-7d}
-      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
+      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:8574}
       - HUGGINGFACE_API_TOKEN=${HUGGINGFACE_API_TOKEN:-}
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
       - TELEGRAM_ADMIN_IDS=${TELEGRAM_ADMIN_IDS:-}
       - TELEGRAM_ADMIN_PIN=${TELEGRAM_ADMIN_PIN:-1234}
       - TELEGRAM_WEBHOOK_SECRET=${TELEGRAM_WEBHOOK_SECRET:-}
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/products"]
+      test: ["CMD", "wget", "-qO-", "http://localhost:8574/api/products"]
       interval: 30s
       timeout: 10s
       retries: 3

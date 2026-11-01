@@ -29,7 +29,7 @@ make up
 این دستور:
 1. ایمیج را می‌سازد
 2. پایگاه داده را می‌سازد و seed می‌کند
-3. سرور را روی پورت 3000 اجرا می‌کند
+3. سرور را روی پورت 8574 اجرا می‌کند
 
 ### دستورات مفید
 ```bash
@@ -74,13 +74,13 @@ npm run dev
 
 | صفحه | آدرس |
 |------|------|
-| صفحه اصلی | http://localhost:3000 |
-| محصولات | http://localhost:3000/products |
-| کالکشن‌ها | http://localhost:3000/collections |
-| ویترین‌ها | http://localhost:3000/showcase |
-| درباره ما | http://localhost:3000/about |
-| تماس با ما | http://localhost:3000/contact |
-| پنل مدیریت | http://localhost:3000/admin |
+| صفحه اصلی | http://localhost:8574 |
+| محصولات | http://localhost:8574/products |
+| کالکشن‌ها | http://localhost:8574/collections |
+| ویترین‌ها | http://localhost:8574/showcase |
+| درباره ما | http://localhost:8574/about |
+| تماس با ما | http://localhost:8574/contact |
+| پنل مدیریت | http://localhost:8574/admin |
 
 ### ورود پنل مدیریت
 - **ایمیل:** `admin@dellygold.com`
@@ -191,8 +191,8 @@ npm run dev
 
 | صفحه | آدرس |
 |------|------|
-| صفحه اصلی | http://localhost:3000 |
-| پنل مدیریت | http://localhost:3000/admin |
+| صفحه اصلی | http://localhost:8574 |
+| پنل مدیریت | http://localhost:8574/admin |
 
 ### ورود پنل مدیریت
 - **ایمیل:** `admin@dellygold.com`
